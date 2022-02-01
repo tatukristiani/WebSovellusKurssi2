@@ -1,0 +1,36 @@
+{
+  "nodes": [
+    {
+      "id": 1,
+      "content": "Test content one"
+    },
+    {
+      "id": 2,
+      "content": "Another content"
+    },
+    {
+      "id": 3,
+      "content": "third content"
+    },
+    {
+      "content": "4th node to be added",
+      "id": 4
+    },
+    {
+      "content": "5th node to be added",
+      "id": 5
+    },
+    {
+      "content": "6th node to be added",
+      "id": 6
+    },
+    {
+      "content": "7th node",
+      "id": 7
+    },
+    {
+      "content": "Content that is valid",
+      "id": 8
+    }
+  ]
+}
