@@ -32,8 +32,9 @@ import {
 } from 'react-router-dom'
 
 import Add from './components/Add'
-import Home from './components/Home'
+import Register from './components/Register'
 import List from './components/List'
+import Login from './components/Login'
 import axios from 'axios'
 
 
@@ -55,7 +56,7 @@ import axios from 'axios'
     )
 }*/
 
-/*const Home = () => {
+/*const Register = () => {
     return(
         <div>
             <p>Koti</p>
@@ -81,7 +82,8 @@ const App = () => {
         <div className="container">
             <Router>
                 <div>
-                    <Link style={padding} to="/">home</Link>
+                    <Link style={padding} to="/">register</Link>
+                    <Link style={padding} to="/login">login</Link>
                     <Link style={padding} to="/add">add</Link>
                     <Link style={padding} to="/list">list</Link>
                 </div>
@@ -93,8 +95,11 @@ const App = () => {
                     <Route path="/list">
                         <List nodes={nodes}/>
                     </Route>
+                    <Route path="/login">
+                        <Login/>
+                    </Route>
                     <Route path="/">
-                        <Home />
+                        <Register />
                     </Route>
                 </Switch>
 
