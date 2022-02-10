@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { Form } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button'
 import axios from 'axios'
+import {UserContext} from "./UserContext";
+import {SessionContext} from "./SessionContext";
 
 
 
@@ -22,6 +24,8 @@ const Add = ({onSubmit, inputValue, onChange}) => {
 
 // Validated form
 const Add = () => {
+    const {savedUser, setSavedUser} = useContext(UserContext)
+    const {savedToken, setSavedToken} = useContext(SessionContext)
     const [validated, setValidated] = useState(false) // State of validation, meaning that has the form been validated.
     const [newNode, setNewNode] = useState('') // State of the new node to be made
 
@@ -33,26 +37,50 @@ const Add = () => {
 
 
     const handleSubmitValidation = (event) => {
+        event.preventDefault()
         const form = event.currentTarget
 
         // If there are any invalid fields, won't send the form.
         // On a valid form creates a new Node object with the newNode's state and sends it via POST to json-server
         if(form.checkValidity() === false) {
-            event.preventDefault()
             event.stopPropagation()
         } else {
-            const nodeObject = {
-                content: newNode
+            const tokenString = localStorage.getItem("myToken");
+            if(tokenString == null) {
+                alert("You aren't logged in & your token is invalid!")
+            } else {
+                const tokenObj = JSON.parse(tokenString);
+                const headers = {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer: '  + tokenObj.accessToken
+                }
+
+                const nodeObject = {
+                    content: newNode
+                }
+
+                axios.post('https://moviesoftwareapi.herokuapp.com/api/event', nodeObject, { headers: headers})
+                    .then(r => {
+                        console.log(JSON.stringify(r));
+                        axios.post('http://localhost:3001/nodes', nodeObject)
+                            .then()
+                            .catch(err => {
+                            console.log(err.message);
+                        })
+                    })
+                    .catch(err => {
+                    console.log(err.message);
+                })
+                alert("Content successfully created!")
             }
-            axios.post('http://localhost:3001/nodes', nodeObject)
-            alert("Content successfully created!")
         }
         setValidated(true)
-
     }
 
     return(
         <div className='container'>
+            {savedUser ? ( <p> "You are logged in!" </p> ) : (<p> "You must be logged in!" </p>)}
+            {savedToken ? ( <p> "Token is saved" </p> ) : (<p> "Token is not saved!" </p>)}
             <Form noValidate validated={validated} onSubmit={handleSubmitValidation}>
                 <Form.Group className='mb-3' controlId='formContent'>
                     <Form.Label>Content</Form.Label>

@@ -1,8 +1,18 @@
-import React from "react";
+import React, {useEffect, useState} from 'react'
 import { Table } from 'react-bootstrap'
 import Node from './Node'
+import axios from "axios";
 
-const List = ({nodes}) => {
+const List = () => {
+    const [nodes, setNodes] = useState([])
+
+    useEffect(() => {
+        axios.get('http://localhost:3001/nodes')
+            .then(response => {
+                setNodes(response.data)
+            })
+    }, [])
+
     return(
         <div className="container">
             {/* A JSX comment */}

@@ -5,13 +5,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e27c6b4-796c-49a4-90e5-a859aa281cf1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Register.js" afterDir="false" />
+    <list default="true" id="4e27c6b4-796c-49a4-90e5-a859aa281cf1" name="Default Changelist" comment="a simple menu with React">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Add.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Add.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/List.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/List.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +37,9 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -109,7 +112,15 @@
       <workItem from="1598602014775" duration="2262000" />
       <workItem from="1599116090165" duration="4892000" />
       <workItem from="1643704615082" duration="8604000" />
-      <workItem from="1643725879842" duration="6972000" />
+      <workItem from="1643725879842" duration="7998000" />
+      <workItem from="1643822877552" duration="1339000" />
+      <workItem from="1643991966635" duration="1185000" />
+      <workItem from="1644213446751" duration="1254000" />
+      <workItem from="1644217683900" duration="2183000" />
+      <workItem from="1644263641103" duration="1188000" />
+      <workItem from="1644304277087" duration="4122000" />
+      <workItem from="1644500753398" duration="4201000" />
+      <workItem from="1644507119879" duration="3379000" />
     </task>
     <task id="LOCAL−00001" summary="a simple menu with React">
       <created>1599124007693</created>
@@ -163,7 +174,6 @@
         <entry key="1" value="TOOL_WINDOW" />
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="a simple menu with React" />

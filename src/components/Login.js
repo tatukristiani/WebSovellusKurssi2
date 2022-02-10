@@ -1,12 +1,18 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import { Form } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button'
 import axios from "axios";
+import {UserContext} from "./UserContext";
+import {SessionContext} from "./SessionContext";
 
 
 const Login = () => {
+    const {savedUser, setSavedUser} = useContext(UserContext);
+    const {savedToken, setSavedToken} = useContext(SessionContext);
+
     const [validated, setValidated] = useState(false)
-    const [user, setUser] = useState()
+    const [user, setUser] = useState({username: '', password: ''})
+    let tokenKey = "myToken"
 
 
     const handlePasswordChange = (event) => {
@@ -17,18 +23,26 @@ const Login = () => {
     }
 
     const handleLogin = async (event) => {
+        const account = {
+            username: user.username,
+            password: user.password
+        }
         event.preventDefault()
         const form = event.currentTarget
 
         if(form.checkValidity() === false) {
             event.stopPropagation()
         } else {
-            axios.post('https://moviesoftwareapi.herokuapp.com/accountValidate', user)
+            axios.post('https://moviesoftwareapi.herokuapp.com/accountValidate', account)
                 .then(response => {
                     console.log(response)
                     if(response.data === false) {
                         alert("Invalid credentials!")
                     } else {
+                        localStorage.setItem("user", account.username)
+                        localStorage.setItem(tokenKey,JSON.stringify(response.data))
+                        setSavedUser(localStorage.getItem("user"))
+                        setSavedToken(localStorage.getItem("myKey"))
                         alert("Valid credentials!")
                     }
                 })
